@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MyKeyBox.Shared.Infrastructure.Persistence.SSMS;
+namespace SocialServices.Shared.Infrastructure.Persistence.SSMS;
 
 public class SsmsOptions
 {

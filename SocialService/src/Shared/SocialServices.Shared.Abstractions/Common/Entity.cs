@@ -1,4 +1,4 @@
-﻿namespace MyKeyBox.Shared.Abstractions.Common;
+﻿namespace SocialServices.Shared.Abstractions.Common;
 
 public abstract class Entity
 {

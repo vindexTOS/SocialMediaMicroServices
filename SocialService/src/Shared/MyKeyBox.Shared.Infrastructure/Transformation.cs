@@ -1,4 +1,4 @@
-﻿namespace MyKeyBox.Shared.Infrastructure;
+﻿namespace SocialServices.Shared.Infrastructure;
 
 /// <summary>
 /// Warning : if you need return success type please ensure TEntity property names and Dto names is same for AsDto method

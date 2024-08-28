@@ -1,9 +1,9 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using MyKeyBox.Shared.Abstractions.Exception;
+using SocialServices.Shared.Abstractions.Exception;
 
-namespace MyKeyBox.Shared.Infrastructure;
+namespace SocialServices.Shared.Infrastructure;
 
 internal class ErrorHandlerMiddleware:IMiddleware
 {

@@ -1,4 +1,4 @@
-﻿namespace MyKeyBox.Shared.Abstractions.Exception;
+﻿namespace SocialServices.Shared.Abstractions.Exception;
 
 public class CustomException:System.Exception
 {

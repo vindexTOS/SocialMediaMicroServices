@@ -1,4 +1,4 @@
-﻿namespace MyKeyBox.Shared.Infrastructure.Persistence;
+﻿namespace SocialServices.Shared.Infrastructure.Persistence;
 
 public interface IUnitOfWork
 {

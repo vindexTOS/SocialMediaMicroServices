@@ -1,8 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
-// using MyKeyBox.Module.DealershipOffice.Core;
+using SocialServices.Module.Comments.Core;
 
-[assembly:InternalsVisibleTo("MyKeyBox.Bootstraper")]
+[assembly:InternalsVisibleTo("SocialServices.Bootstraper")]
 namespace SicuakServuces.Module.Comments.Api;
 
 public static class CommentsModule

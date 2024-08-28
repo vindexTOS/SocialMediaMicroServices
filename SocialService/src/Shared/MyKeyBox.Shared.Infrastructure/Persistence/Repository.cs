@@ -1,11 +1,11 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using MyKeyBox.Shared.Abstractions.Common;
+using SocialServices.Shared.Abstractions.Common;
 
-[assembly:InternalsVisibleTo("MyKeyBox.Modules.BackOffice.Core")]
+[assembly:InternalsVisibleTo("SocialServices.Modules.Comments.Core")]
 
-namespace MyKeyBox.Shared.Infrastructure.Persistence;
+namespace SocialServices.Shared.Infrastructure.Persistence;
 
 internal abstract class Repository<T, TDbContext> 
     where TDbContext : DbContext

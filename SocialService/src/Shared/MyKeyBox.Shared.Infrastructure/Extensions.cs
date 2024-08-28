@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyKeyBox.Shared.Infrastructure.Persistence.SSMS;
+using SocialServices.Shared.Infrastructure.Persistence.SSMS;
 
-[assembly:InternalsVisibleTo("MyKeyBox.Bootstraper")]
-namespace MyKeyBox.Shared.Infrastructure;
+[assembly:InternalsVisibleTo("SocialServices.Bootstraper")]
+namespace SocialServices.Shared.Infrastructure;
 internal static class Extensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection collection)

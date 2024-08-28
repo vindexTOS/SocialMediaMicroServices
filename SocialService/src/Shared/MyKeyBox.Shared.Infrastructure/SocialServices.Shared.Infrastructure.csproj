@@ -18,7 +18,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\MyKeyBox.Shared.Abstractions\MyKeyBox.Shared.Abstractions.csproj" />
+    <ProjectReference Include="..\SocialServices.Shared.Abstractions\SocialServices.Shared.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

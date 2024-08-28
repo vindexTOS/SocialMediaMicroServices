@@ -1,4 +1,4 @@
-namespace MyKeyBox.Tests.EndToEnd;
+namespace SocialServices.Tests.EndToEnd;
 
 public class UnitTest1
 {

@@ -1,12 +1,12 @@
-using MyKeyBox.Modules.BackOffice.Api;
-using MyKeyBox.Shared.Infrastructure;
+using SocialServices.Modules.Comments.Api;
+using SocialServices.Shared.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
     builder.Services.AddSwaggerGen();
     builder.Services.AddInfrastructure();
-    builder.Services.AddBackOfficeModule();
+    builder.Services.AddCommentsModule();
 }
 var app = builder.Build();
 {

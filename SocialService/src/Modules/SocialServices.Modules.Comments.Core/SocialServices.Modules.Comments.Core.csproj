@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 <ItemGroup>
-      <ProjectReference Include="..\..\Shared\MyKeyBox.Shared.Infrastructure\MyKeyBox.Shared.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Shared\SocialServices.Shared.Infrastructure\SocialServices.Shared.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
