@@ -13,15 +13,18 @@ return new class extends Migration
     {
         Schema::create("userinfos", function (Blueprint $table){
             $table->id();
-            
+            $table->string("profile_photo_id");
+            $table->string("wall_papper_id");
+            $table->string("user_id");
             $table->string("description");
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
+
             
             
-            
-            // $table->foreign("profile_photo_id")->references("id")->on("photos")->onDelete('cascade');
-            // $table->foreign("wall_papper_id")->references("id")->on("photos")->onDelete("cascade");
-            // $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
+          
         });
     }
     

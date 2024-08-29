@@ -7,25 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-    * Run the migrations.
-    */
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create("posts", function(Blueprint $table){
+        Schema::create("posts", function (Blueprint $table) {
             $table->id();
             $table->string("title");
             $table->string("text");
-            
-            
-            //  $table->foreign("user_id")->references("id")->on("users");
-            //  $table->foregin("img_id")->references("id")->on("photos");
-            
+            $table->string("img");
+            $table->softDeletes();
+            $table->string("user_id");
+            $table->foreign("user_id")->references("id")->on("users");
+         
+
         });
     }
-    
+
     /**
-    * Reverse the migrations.
-    */
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists("posts");

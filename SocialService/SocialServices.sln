@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41DFDF1D-08EE-45F8-AA4C-5F195A61B079}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstraper", "Bootstraper", "{9D595052-D6BB-40B2-8923-4AD84F2BE5D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServices.Bootstraper", "src\Bootstraper\SocialServices.Bootstraper\SocialServices.Bootstraper.csproj", "{0657868C-1B0E-4CB6-A6B1-F81C50524B41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0657868C-1B0E-4CB6-A6B1-F81C50524B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0657868C-1B0E-4CB6-A6B1-F81C50524B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0657868C-1B0E-4CB6-A6B1-F81C50524B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0657868C-1B0E-4CB6-A6B1-F81C50524B41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D595052-D6BB-40B2-8923-4AD84F2BE5D5} = {41DFDF1D-08EE-45F8-AA4C-5F195A61B079}
+		{0657868C-1B0E-4CB6-A6B1-F81C50524B41} = {9D595052-D6BB-40B2-8923-4AD84F2BE5D5}
 	EndGlobalSection
 EndGlobal

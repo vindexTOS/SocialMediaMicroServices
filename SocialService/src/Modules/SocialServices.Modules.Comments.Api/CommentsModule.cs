@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
-using SocialServices.Module.Comments.Core;
+using SocialServices.Modules.Comments.Core;
 
 [assembly:InternalsVisibleTo("SocialServices.Bootstraper")]
 namespace SicuakServuces.Module.Comments.Api;

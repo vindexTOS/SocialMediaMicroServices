@@ -7,7 +7,7 @@
             <RootNamespace>SocialServices.Module.Comments.Api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-      <ProjectReference Include="..\SocialServices.Module.DealershipOffice.Core\SocialServices.Module.DealershipOffice.Core.csproj" />
+      <ProjectReference Include="..\SocialServices.Modules.Comments.Core\SocialServices.Modules.Comments.Core.csproj" />
     </ItemGroup>
    
 
