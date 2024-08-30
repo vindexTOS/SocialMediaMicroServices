@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\DB;
 class UserInfoController extends Controller
 {
     
-    private $photoService;
+ 
     private $userInfoService; 
-    public function __construct( PhotoService $photoService ,UserService $userInfoService) {
-        $this->photoService = $photoService;
+    public function __construct( UserService $userInfoService) {
+   
         $this->userInfoService = $userInfoService;
     }
     
@@ -23,7 +23,7 @@ class UserInfoController extends Controller
             return  $this->userInfoService->index();
         } catch (\Throwable $th) {
             
-            \Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
+        //    Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
             
             return response()->json(['error' => 'An error occurred.'], 500);
         }
@@ -41,7 +41,7 @@ class UserInfoController extends Controller
         } catch (\Throwable $th) {
             DB::rollBack();
             
-            \Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
+            // \Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
             
             return response()->json(['error' => 'An error occurred.'], 500);
             
@@ -55,22 +55,11 @@ class UserInfoController extends Controller
             return  $this->userInfoService->show($id);
         } catch (\Throwable $th) {
             
-            \Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
+            // \Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
             
             return response()->json(['error' => 'An error occurred.'], 500);
         }
     }
     
-    public function MakePhoto(Request $request){
-        
-        try {
-            return $this->photoService-> UploadPhoto($request);
-            
-        } catch (\Throwable $th) {
-            \Log::error('Caught exception: ' . $th->getMessage() . ' in ' . $th->getFile() . ' on line ' . $th->getLine());
-            
-            return response()->json(['error' => 'An error occurred.'], 500);
-        }
-        
-    }
+ 
 }

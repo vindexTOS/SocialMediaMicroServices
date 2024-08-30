@@ -2,7 +2,7 @@
 namespace App\Services;
 
 use App\Models\User;
-
+use App\Providers\AuthProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +11,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class AuthService
+
+
 {
+
+    use AuthProvider;
     public function signup(Request $request)
     {  
         $val =  Validator::make($request->all(), [
@@ -19,11 +23,16 @@ class AuthService
             'email' => 'required|unique:users|max:255',  
             'password' => 'required',
         ]);
+
+      
         if(    $val->fails()){
             throw new ValidationException($val);
         };
         
         $data = $val->validated();
+        $this->EmailCheck($data["email"]);
+
+
         User::create([
             "name"=>$data["name"],
             'email' => $data['email'],

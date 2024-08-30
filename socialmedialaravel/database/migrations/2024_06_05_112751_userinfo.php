@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string("profile_photo_id");
             $table->string("wall_papper_id");
-            $table->string("user_id");
+            $table->unsignedBigInteger("user_id");
             $table->string("description");
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
+            $table->foreign("user_id")->references("id")->on("users");
 
             
             

@@ -1,13 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SocialService.Modules.Comments.Core.Entities;
- 
-namespace SocialService.Module.Comments.Core.DAL.Repositories;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
-internal class ICommentsRepository
+namespace SocialService.Modules.Comments.Core.DAL.Repositories
 {
-    public Task<List<Comment>> GetAllAsync();
-    public Task<Comment?> GetByIdAsync(int id ,CancellationToken token=default);  
-    public Task<EntityEntry> AddAsync(Commententity);
-    public Task<EntityEntry> UpdateAsync(Comment entity);
-    public Task<EntityEntry> DeleteAsync(Comment entity);  
+    public interface ICommentRepository
+    {
+        Task<List<Comment>> GetAllAsync();
+        Task<Comment?> GetByIdAsync(int id, CancellationToken token = default);  
+        Task<EntityEntry<Comment>> AddAsync(Comment entity);
+        Task<EntityEntry<Comment>> UpdateAsync(Comment entity);
+        Task<EntityEntry<Comment>> DeleteAsync(Comment entity);  
+    }
 }
