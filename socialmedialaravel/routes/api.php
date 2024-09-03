@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserInfoController;
 
@@ -13,7 +14,10 @@ Route::prefix("auth")->group(function(){
     Route::post("signup", [AuthController::class, "signup"]);
     Route::post("login", [AuthController::class, "login"]);
 });
+
+ 
 Route::apiResource("userInfo", UserInfoController::class);
+Route::apiResource("post", PostController::class);
 
 
 // Route::post("photoUpload", [UserInfoController::class, "MakePhoto"]);

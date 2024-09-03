@@ -12,9 +12,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 { 
     
     use HasFactory, Notifiable ,HasApiTokens;
@@ -28,10 +28,16 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        
+        'deleted_at',
         'password',
     ];
     
+    public function getJWTIdentifier() {
+        return $this->getKey();
+    }
+    public function getJWTCustomClaims() {
+        return [];
+    }
     /**
     * The attributes that should be hidden for serialization.
     *

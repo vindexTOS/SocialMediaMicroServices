@@ -33,8 +33,8 @@ class AuthController extends Controller
         } catch (\Throwable $th) {
             DB::rollBack();
 
-
-            return response()->json(['error' => 'An error occurred.'], 500);
+           
+            return response()->json(['error' =>  $th], 500);
         }
     }
 
@@ -50,7 +50,7 @@ class AuthController extends Controller
             return response()->json(['errors' => $e->validator->errors()], 422);
         } catch (\Throwable $th) {
 
-            return response()->json(['error' => 'An error occurred.'], 500);
+            return response()->json(['error' => $th], 500);
         }
     }
 }
