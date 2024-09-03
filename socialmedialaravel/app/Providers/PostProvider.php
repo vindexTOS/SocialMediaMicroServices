@@ -16,7 +16,7 @@ abstract class PostProvider
 
 
 
- protected function Valiator(Request $request)
+ protected function Validator(Request $request)
     {
         return Validator::make($request->all(), [
             "title" => "required",

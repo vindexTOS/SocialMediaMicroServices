@@ -18,7 +18,7 @@ Route::prefix("auth")->group(function(){
  
 Route::apiResource("userInfo", UserInfoController::class);
 Route::apiResource("post", PostController::class);
-
+ 
 
 // Route::post("photoUpload", [UserInfoController::class, "MakePhoto"]);
 // Route::prefix("user")->(function(){

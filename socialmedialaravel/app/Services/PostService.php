@@ -29,7 +29,7 @@ class PostService extends PostProvider
 
     public function store(Request $request)
     {
-        $val = $this->Valiator($request);
+        $val = $this->Validator($request);
 
         if ($val->fails()) {
             throw new ValidationException($val);
@@ -56,12 +56,37 @@ class PostService extends PostProvider
         return response()->json(["post" => $post]);
     }
 
+    public function update(Request $request, string $id)
+    {
+        $val = $this->Validator($request);
+
+        if ($val->fails()) {
+            throw new ValidationException($val);
+        }
+
+        $data = $val->validated();
+
+        $post = Post::find($id);
+
+        if (!$post) {
+            throw new CustomeException("Post could not be found", 404);
+        }
+
+        $post->update([
+            'title' => $data['title'],
+            'text' => $data['text'],
+            'img_id' => $request->input('img_id'),
+            'user_id' => $data['user_id'],
+        ]);
+
+        return response()->json(['msg' => 'Post has been updated'], 200);
+    }
 
     public function destroy(string $id)
     {
 
         $post = Post::find($id);
-    Log::debug($post);
+        Log::debug($post);
         if ($post) {
             $post->delete();
         } else {
@@ -70,11 +95,4 @@ class PostService extends PostProvider
 
         return response()->json(['msg' => "post has been deleted"]);
     }
-
-
-
-
-
-    public function update(Request $request) {}
-  
 }
