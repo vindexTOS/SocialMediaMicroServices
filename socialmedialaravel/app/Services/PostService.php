@@ -48,21 +48,33 @@ class PostService extends PostProvider
 
     public function show(string $id)
     {
-        Log::debug($id);
+
         $post = Post::where('id', $id)->first();
-        if(!$post){
+        if (!$post) {
             throw new CustomeException("Post could not be found", 404);
         }
         return response()->json(["post" => $post]);
     }
 
 
+    public function destroy(string $id)
+    {
 
+        $post = Post::find($id);
+    Log::debug($post);
+        if ($post) {
+            $post->delete();
+        } else {
+            throw new CustomeException("Post could not be found", 404);
+        }
+
+        return response()->json(['msg' => "post has been deleted"]);
+    }
 
 
 
 
 
     public function update(Request $request) {}
-    public function destroy(string $id) {}
+  
 }

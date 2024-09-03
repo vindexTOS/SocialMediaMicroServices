@@ -52,4 +52,16 @@ class PostController extends Controller
             return response()->json(['error' =>  $th], 500);
         }
     }
+
+    public function destroy(string $id)
+    {
+        try {
+            return $this->postService->destroy($id);
+        } catch (CustomeException $e) {
+
+            return response()->json(['error' => "post not found"], 404);
+        } catch (\Throwable $th) {
+            return response()->json(['error' =>  $th], 500);
+        }
+    }
 }
