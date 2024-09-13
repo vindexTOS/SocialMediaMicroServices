@@ -55,7 +55,8 @@ class PostService extends PostProvider
         }
         return response()->json(["post" => $post]);
     }
-
+  
+     
     public function update(Request $request, string $id)
     {
         $val = $this->Validator($request);
