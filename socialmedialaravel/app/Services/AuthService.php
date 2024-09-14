@@ -2,12 +2,15 @@
 namespace App\Services;
 
 use App\Models\User;
-use App\Providers\AuthProvider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Providers\AuthProvider;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Validation\ValidationException;
 
 class AuthService
@@ -50,23 +53,22 @@ class AuthService
             'email' => 'required|email',
             'password' => 'required'
         ]);
+    
         if($val->fails()){
             throw new ValidationException($val);
         }
-        
-        
-        if(Auth::attempt(["email"=>$request->email, "password"=> $request->password])){
-            $user = Auth::user();
-            
-            
-            $token = $user->createToken('API Token')->accessToken;
-            
-            
-            return response()->json(['user'=>$user, "token"=>$token],200);
-            
-        }else{
-            return response()->json(['error'=>"Invalid email or password"], 401);
+    
+        $credentials = $request->only('email', 'password');
+    
+        try {
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'Invalid email or password'], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' =>$e], 500);
         }
+       Log::debug($token);
+        return response()->json(['token' => $token], 200);
     }
     
     

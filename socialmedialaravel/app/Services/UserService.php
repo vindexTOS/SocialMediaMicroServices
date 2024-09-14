@@ -13,12 +13,7 @@ use Illuminate\Validation\ValidationException;
 
 class UserService { 
     
-    private $photoService; 
-    
-    public function __construct(PhotoService $photoService){
-        $this->photoService = $photoService;
-    }
-    
+ 
     
     
     function index(){
@@ -37,32 +32,7 @@ class UserService {
     }
     
     
-    function store(Request $request){
-        
-        $userInfo = [];
-        
-        $profilePhoto = $this->photoService->uploadPhoto($request, 'profile_photo');
-        if($profilePhoto){
-            $userInfo['profile_photo_id'] = $profilePhoto->id;
-        }
-        
-        $wallpaper =  $this->photoService->uploadPhoto($request, 'wallpaper');
-        if($wallpaper){
-            $userInfo['wall_papper_id'] = $wallpaper->id;
-        }
-        
-        $description = $request["description"];
-        if($description){
-            $userInfo['description'] = $description;
-        }
-        UserInfo::updateOrCreate(
-            ["user_id" => $request['user_id']],
-            $userInfo
-        );      
-        
-        
-        return ['msg'=>'Info updated'];
-    }
+  
     
     
     

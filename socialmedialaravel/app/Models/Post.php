@@ -15,7 +15,10 @@ class Post extends Model
         "title",
         "text",
         'img_id',
-        'user_id'
+        'user_id',
+        "updated_at",
+        'deleted_at',
+        "created_at"
     ];
     
     public function User()

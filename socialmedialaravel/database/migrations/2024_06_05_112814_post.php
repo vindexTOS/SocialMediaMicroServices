@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->string("text");
-            $table->string("img");
+            $table->string("img_id");
+            $table->dateTime("updated_at"  );
+            $table->dateTime("created_at" );
             $table->softDeletes();
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
-         
-
         });
     }
 
