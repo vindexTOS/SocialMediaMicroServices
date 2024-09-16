@@ -1,12 +1,11 @@
 import { Controller } from '@nestjs/common';
-import { MessagePattern, Payload } from '@nestjs/microservices';
+import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
-
-  @MessagePattern('chat')
-  handleNotification(@Payload() data: any) {
-    console.log('Received notification:', data);
-    return { status: 'chat processed' };
+  @EventPattern('chat')  // Matching the 'chat' pattern sent by the API Gateway
+ async handleChatMessage(@Payload() data: any) {
+   await console.log('Received message:', data);
+    // return { status: 'Message processed by Chat Service' };
   }
 }

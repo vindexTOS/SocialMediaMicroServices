@@ -1,18 +1,14 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
- 
-import { ClientProxy,  } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
-import { AppService } from './app.service';
+import { Controller, Post, Body } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
+import { Inject } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(@Inject('CHAT_SERVICE') private readonly client: ClientProxy) {}
 
-  @Post('test')
-  async notify(@Body() data: any) {
- 
-    await this.appService.sendChatMessage(data) 
-    return { message: 'chat sent' };
+  @Post('send')
+  async sendMessage(@Body() data: any) {
+         await this.client.emit('chat', { hello: 'world' });
+        return { status: 'Message sent' };
   }
-
 }

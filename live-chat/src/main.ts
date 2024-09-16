@@ -7,11 +7,11 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: ['amqps://iuhpkzji:WXThgXLF5H3SfM4RhQYOfNPBplz9xeKI@shrimp.rmq.cloudamqp.com/iuhpkzji'],
-      queue: '_queue',
-      queueOptions: { durable: false },
+      queue: 'chat-queue',  // Listening to the queue where the API Gateway sends messages
+      queueOptions: { durable: false } 
     },
   });
   await app.listen();
-  console.log('CHAT-APP Microservice is listening');
+  console.log('Chat Service Microservice is listening');
 }
 bootstrap();

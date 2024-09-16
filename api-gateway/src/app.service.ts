@@ -6,7 +6,7 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 export class AppService {
 
   constructor(
-    @Inject('PRODUCT_SERVICE') private readonly client: ClientProxy
+    @Inject('CHAT_SERVICE') private readonly client: ClientProxy
   ) {}
 
   sendChatMessage(data: any): Observable<any> {
