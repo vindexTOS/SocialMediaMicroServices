@@ -28,8 +28,42 @@ return [
     |
     */
 
-    'connections' => [
+   
+        'connections' => [
+    // Other connections...
 
+    // 'rabbitmq' => [
+    //     'driver' => 'rabbitmq',
+    //     'host' => env('RABBITMQ_HOST', 'localhost'),
+    //     'port' => env('RABBITMQ_PORT', 5672),
+    //     'username' => env('RABBITMQ_USER', 'guest'),
+    //     'password' => env('RABBITMQ_PASSWORD', 'guest'),
+    //     'vhost' => env('RABBITMQ_VHOST', '/'),
+    //     'options' => [
+    //         'ssl_options' => [
+    //             'cafile' => env('RABBITMQ_CAFILE', null),
+    //             'verify_peer' => env('RABBITMQ_VERIFY_PEER', true),
+    //             'verify_peer_name' => env('RABBITMQ_VERIFY_PEER_NAME', true),
+    //         ],
+    //     ],
+    // ],
+    'rabbitmq' => [
+        'driver' => 'rabbitmq',
+        'hosts' => [
+            [
+                'host' => env('RABBITMQ_HOST', '127.0.0.1'),
+                'port' => env('RABBITMQ_PORT', 5672),
+                'user' => env('RABBITMQ_USER', 'guest'),
+                'password' => env('RABBITMQ_PASSWORD', 'guest'),
+                'vhost' => env('RABBITMQ_VHOST', '/'),
+            ],
+        ],
+        'options' => [
+            'queue' => [
+                'queue_max_priority' => 10,
+            ],
+        ],
+    ],
         'sync' => [
             'driver' => 'sync',
         ],

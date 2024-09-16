@@ -10,8 +10,17 @@ import { AppService } from './app.service';
         name: 'CHAT_SERVICE',  // The name used for dependency injection
         transport: Transport.RMQ,
         options: {
-          urls: ['amqps://iuhpkzji:WXThgXLF5H3SfM4RhQYOfNPBplz9xeKI@shrimp.rmq.cloudamqp.com/iuhpkzji'],
+          urls: ['amqp://guest:guest@localhost:5672/'],
           queue: 'chat-queue',  // Queue name to which messages are sent
+          queueOptions: { durable: false },
+        },
+      },
+      {
+        name: 'USER_SERVICE',  // The name used for dependency injection
+        transport: Transport.RMQ,
+        options: {
+          urls: ['amqp://guest:guest@localhost:5672/'],
+          queue: 'user-queue',  // Queue name for user service
           queueOptions: { durable: false },
         },
       },

@@ -10,7 +10,7 @@ import { AppService } from './app.service';
         name: 'CHAT_SERVICE',
         transport: Transport.RMQ,
         options: {
-          urls: ['amqps://iuhpkzji:WXThgXLF5H3SfM4RhQYOfNPBplz9xeKI@shrimp.rmq.cloudamqp.com/iuhpkzji'],
+          urls: ['amqp://guest:guest@localhost:5672/'],
           queue: 'gate-way',  // The queue this service listens to
           queueOptions: {    durable:false,  } 
         },

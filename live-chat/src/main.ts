@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
     transport: Transport.RMQ,
     options: {
-      urls: ['amqps://iuhpkzji:WXThgXLF5H3SfM4RhQYOfNPBplz9xeKI@shrimp.rmq.cloudamqp.com/iuhpkzji'],
+      urls: ['amqp://guest:guest@localhost:5672/'],
       queue: 'chat-queue',  // Listening to the queue where the API Gateway sends messages
       queueOptions: { durable: false } 
     },

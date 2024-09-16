@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Services\PhotoService;
+use App\Jobs\ProcessUserUpdate;
 use Illuminate\Support\Facades\DB;
 
 class UserInfoController extends Controller
@@ -16,7 +17,15 @@ class UserInfoController extends Controller
    
         $this->userInfoService = $userInfoService;
     }
-    
+    public function updateUser(Request $request)
+    {
+        $userData = $request->all(); // or however you gather the user data
+
+        // Dispatch the job to the 'user-queue'
+        ProcessUserUpdate::dispatch($userData)->onQueue('user-queue');
+
+        return response()->json(['status' => 'User update job dispatched']);
+    }
     
     public function index(){
         try {
