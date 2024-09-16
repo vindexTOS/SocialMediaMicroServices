@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Services\AuthService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Exceptions\CustomeException;
 
 class AuthController extends Controller
@@ -30,7 +31,7 @@ class AuthController extends Controller
             return response()->json(['errors' => $e->validator->errors()], 422);
         } catch (CustomeException $e) {
             return  $e->render();
-        } catch (\Throwable $th) {
+        } catch (\Throwable  $e) {
             DB::rollBack();
 
            
